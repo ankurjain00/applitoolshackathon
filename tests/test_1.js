@@ -1,4 +1,4 @@
-import selector from '../Selectors/selectors'
+import selector from '../Selectors/ProductPage'
 import Eyes from '@applitools/eyes-testcafe';
 const eyes = new Eyes();
 
@@ -28,7 +28,11 @@ test('filter by color', async t => {
     await selector.clickOnFilterButton()
     await eyes.checkWindow({
         target: 'region',
-        selector: Selector('#product_grid')
+        selector: '#product_grid',
+        content: [
+            {selector: '#DIV__colcolmd__210'},
+            {selector: '#DIV__colcolmd__235'}
+        ]
     });
 });
 
